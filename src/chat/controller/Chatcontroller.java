@@ -23,5 +23,16 @@ public class ChatController
 	public void start()
 	{
 		display.displayText(simpleBot.getUserName());
+		chat();
 	}
+	
+	private void chat()
+	{
+		String textFromUser = display.collectUserText("Talk to the chatbot");
+		while(simpleBot.lengthChecker(textFromUser))
+		{
+			textFromUser = display.collectUserText("wow" + textFromUser);
+		}
+	}
+	
 }
