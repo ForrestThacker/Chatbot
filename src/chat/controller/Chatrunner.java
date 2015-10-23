@@ -1,5 +1,6 @@
 package chat.controller;
 
+import chat.controller.ChatController;
 /**
  * Starts the Chatbot program.
  * @author ftha4681
@@ -9,7 +10,7 @@ public class Chatrunner
 {
 	public static void main (String [] args) 
 	{
-		Chatcontroller myChatcontroller =new Chatcontroller();
+		ChatController myChatcontroller = new ChatController();
 		myChatcontroller.start();
 	}
 	
