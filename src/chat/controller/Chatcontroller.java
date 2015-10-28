@@ -14,6 +14,7 @@ public class ChatController
 	private ChatView display;
 	
 	public ChatController()
+	
 	{
 		display = new ChatView();
 		String user = display.collectUserText("What is your name, handsome?");
@@ -22,17 +23,21 @@ public class ChatController
 	
 	public void start()
 	{
-		display.displayText(simpleBot.getUserName());
+		display.displayText("Hello " + simpleBot.getUserName());
 		chat();
 	}
 	
 	private void chat()
 	{
-		String textFromUser = display.collectUserText("Talk to the chatbot");
-		while(simpleBot.lengthChecker(textFromUser))
+		String conversation = display.collectUserText("What should we talk about today?");
+		while(simpleBot.lengthChecker(conversation))
 		{
-			textFromUser = display.collectUserText("wow" + textFromUser);
+			if(simpleBot.contentChecker(conversation))
+			{
+				display.displayText("Wow, I have no idea you loved " + simpleBot.getContent());
+			}
+			conversation = display.collectUserText(conversation);
 		}
 	}
-	
+
 }
