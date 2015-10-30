@@ -6,7 +6,8 @@ import java.util.ArrayList;
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
  * @author ftha4681
- * @version 1.3 10/28/15 added memesList.
+ * @version 1.4 10/28/15 added wow meme method.
+ * Added and completed contentChecker.
  */
 public class Chatbot
 {
@@ -88,7 +89,7 @@ public class Chatbot
 	 * Checks if supplied String matches ANY of the topics in the politicalTopicsList. Returns
 	 * true if it does find a match and false if it does not match.
 	 * @param currentInput The supplied String to be checked.
-	 * @return Whether the String is contained in the ArrayList.
+	 * @return Whether the String is contained is a recognized meme.
 	 */
 	public boolean politicalTopicChecker(String currentInput)
 	{
@@ -101,10 +102,21 @@ public class Chatbot
 	 * @param currentInput The supplied String to be checked.
 	 * @return Whether the supplied String is a recognized meme.
 	 */
-	public boolean memeChecker(String currentInput)
-	{
-		return false;
-	}
+
+		public boolean memeChecker(String currentInput)
+		{
+			boolean hasMeme = false;
+			
+			for(String meme : memesList)
+			{
+				if(currentInput.toLowerCase().contains(meme.toLowerCase()))
+				{
+					hasMeme = true;
+				}
+			}
+			
+			return hasMeme;
+		}
 	
 	/**
 	 * Returns the username of this Chatbot instance.

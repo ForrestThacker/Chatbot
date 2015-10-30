@@ -36,8 +36,14 @@ public class ChatController
 			{
 				display.displayText("Wow, I have no idea you loved " + simpleBot.getContent());
 			}
+			else if (simpleBot.memeChecker(conversation))
+			{
+				display.displayText("Oh wow! You know memes?!");
+			}
+			
 			conversation = display.collectUserText(conversation);
 		}
 	}
 
+	
 }
