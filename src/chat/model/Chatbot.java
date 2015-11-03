@@ -96,6 +96,52 @@ public class Chatbot
 		return false;
 	}
 	
+	public String processConversation(String currentInput)
+		
+	{
+		String nextConversation = "oh, what else would you like to talk about my good chum? :^)";
+		int randomTopic = (int) (Math.random() * 5); //This will generate a random number between 0 & 4.
+		
+		switch (randomTopic)
+		{
+		case 0:
+			if(contentChecker(currentInput))
+			{
+				nextConversation = "Hey, you talked about my special topic! That is neat! What else do you like?";
+			}
+			break;
+		case 1:
+			if(memeChecker(currentInput))
+			{
+				nextConversation = "That is a hot meme right now. What else do you like?";
+			}
+			break;
+		case 2:
+			if(politicalTopicChecker(currentInput))
+			{
+				nextConversation = "I like that too! Do you like video games?";
+			}
+			break;
+		case 3:
+			//Choose your own test here
+			if(currentInput.length() > 23)
+			{
+				nextConversation = "I like video games too! Do you like to eat food?";
+			}
+			break;
+		case 4:
+			//Random topic for chat here
+			nextConversation = "Eating is fun, I agree! Do you like to troll fat people?";
+			break;
+		default:
+			//Never will happen!
+			nextConversation = "That's fantastic! I'm so glad we like so many things!";
+			break;
+		}
+		
+			return nextConversation;
+		}
+
 	
 	/**
 	 * Checks to see that the supplied String value is in the current memesList variable.
