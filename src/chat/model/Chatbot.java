@@ -85,7 +85,23 @@ public class Chatbot
 		return hasContent;
 	}
 	
+	
+	public boolean quitChecker(String currentInput)
+	{
+		boolean hasQuit = false;
+		
+		if(currentInput == "exit"){
+			hasQuit = false;
+		}
+		
+		if (currentInput == "quit"){
+		hasQuit = true;	
+		}
+		
+		return hasQuit;
+}
 	/**
+	 * 
 	 * Checks if supplied String matches ANY of the topics in the politicalTopicsList. Returns
 	 * true if it does find a match and false if it does not match.
 	 * @param currentInput The supplied String to be checked.
@@ -188,7 +204,7 @@ public class Chatbot
 	 */
 	public ArrayList<String> getMemesList()
 	{
-		return null;
+		return memesList;
 	}
 	
 	/**
