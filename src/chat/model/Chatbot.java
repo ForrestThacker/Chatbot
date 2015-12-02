@@ -112,11 +112,23 @@ public class Chatbot
 		return false;
 	}
 	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean isMash = false;
+		
+		return isMash;
+	}
+	
 	public String processConversation(String currentInput)
 		
 	{
 		String nextConversation = "oh, what else would you like to talk about my good chum? :^)";
 		int randomTopic = (int) (Math.random() * 5); //This will generate a random number between 0 & 4.
+		
+		if(keyboardMashChecker(currentInput))
+		{
+			return "Stop mashing the keyboard!!";
+		}
 		
 		switch (randomTopic)
 		{

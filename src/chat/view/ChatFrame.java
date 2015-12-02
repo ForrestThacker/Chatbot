@@ -9,13 +9,20 @@ public class ChatFrame extends JFrame
 {
 	private ChatController baseController;
 	private ChatPanel basePanel;
+	private String frameTitle;
 	
 	public ChatFrame(ChatController baseController)
 	{
 		this.baseController = baseController;
 		basePanel = new ChatPanel(baseController);
+		frameTitle ="Chatbot";
 		
 		setupFrame();
+	}
+	
+	public ChatController getbaseController()
+	{
+		return baseController;
 	}
 	
 	private void setupFrame()
@@ -24,7 +31,10 @@ public class ChatFrame extends JFrame
 		this.setSize(400,400);
 		this.setTitle("Forrest's Chatbot");
 		this.setVisible(true);
+		this.setResizable(false);
+		this.setSize(500, 500);
 	}
+	
 	
 	public ChatController getBaseController()
 	{
