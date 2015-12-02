@@ -90,11 +90,14 @@ public class Chatbot
 	{
 		boolean hasQuit = false;
 		
-		if(currentInput == "exit"){
+		if(currentInput.equals ("quit"))
+		{
 			hasQuit = false;
 		}
 		
-		if (currentInput == "quit"){
+		if (currentInput.equals ("quit"))
+		
+		{
 		hasQuit = true;	
 		}
 		
