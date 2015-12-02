@@ -47,7 +47,20 @@ public class Chatbot
 	
 	private void buildPoliticalTopicsList()
 	{
-		
+		this.politicalTopicList.add("election");
+		this.politicalTopicList.add("Democrat");
+		this.politicalTopicList.add("Republican");
+		this.politicalTopicList.add("liberal");
+		this.politicalTopicList.add("Conservative");
+		this.politicalTopicList.add("Trump");
+		this.politicalTopicList.add("Clinton");
+		this.politicalTopicList.add("Biden");
+		this.politicalTopicList.add("Carson");
+		this.politicalTopicList.add("Rubio");
+		this.politicalTopicList.add("Fiorina");
+		this.politicalTopicList.add("Sanders");
+		this.politicalTopicList.add("vote");
+		this.politicalTopicList.add("11/8/16");
 	}
 	
 	/**
@@ -118,6 +131,11 @@ public class Chatbot
 	public boolean keyboardMashChecker(String currentInput)
 	{
 		boolean isMash = false;
+		
+		if(currentInput.equals("sdf")  || currentInput.equals(",./") || currentInput.equals("dfg") || currentInput.equals("cvb"))
+		{
+			isMash = true;
+		}
 		
 		return isMash;
 	}
@@ -210,7 +228,7 @@ public class Chatbot
 	 */
 	public String getContent()
 	{
-		return content;
+		return this.content=content;
 	}
 	
 	/**
@@ -228,7 +246,7 @@ public class Chatbot
 	 */
 	public ArrayList<String> getPoliticalTopicList()
 	{
-		return null;
+		return politicalTopicList;
 	}
 	
 	/**
@@ -237,7 +255,7 @@ public class Chatbot
 	 */
 	public void setContent(String content)
 	{
-		
+		this.content=content;
 	}
 }
 
