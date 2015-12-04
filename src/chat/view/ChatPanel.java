@@ -23,11 +23,11 @@ public class ChatPanel extends JPanel
 		chatButton.setBackground(SystemColor.scrollbar);
 		chatTextField = new JTextField(30);
 		baseLayout = new SpringLayout();
+		baseLayout.putConstraint(SpringLayout.EAST, chatButton, -19, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.WEST, chatTextField, 10, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, chatTextField, -97, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, chatButton, -10, SpringLayout.EAST, this);
 		promptLabel = new JLabel("Type to the chatbot of doom!");
-		baseLayout.putConstraint(SpringLayout.NORTH, chatButton, 20, SpringLayout.SOUTH, promptLabel);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatButton, 14, SpringLayout.SOUTH, promptLabel);
 		baseLayout.putConstraint(SpringLayout.NORTH, promptLabel, 6, SpringLayout.SOUTH, chatTextField);
 		baseLayout.putConstraint(SpringLayout.WEST, promptLabel, 120, SpringLayout.WEST, this);
 		promptLabel.setBackground(Color.BLACK);
