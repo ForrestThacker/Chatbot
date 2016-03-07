@@ -19,7 +19,7 @@ public class ChatController
 	
 	public ChatController()
 	
-	{
+	{	myTwitter = new CTECTwitter(this);
 		display = new ChatView();
 		String user = display.collectUserText("What is your name, handsome?");
 		simpleBot = new Chatbot(user);
