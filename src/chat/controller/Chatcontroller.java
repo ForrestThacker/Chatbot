@@ -3,17 +3,19 @@ package chat.controller;
 import chat.model.Chatbot;
 import chat.view.ChatView;
 import chat.view.*;
+import chat.model.CTECTwitter;
 
 /**
  *  Controller for the Chatbot project.
  * @author ftha4681
- * @version 1.0 Added methods. 
+ * @version 1.3 Added twitter methods 
  */
 public class ChatController 
 {
 	private Chatbot simpleBot;
 	private ChatView display;
 	private ChatFrame baseFrame;
+	private CTECTwitter myTwitter;
 	
 	public ChatController()
 	
@@ -74,5 +76,15 @@ public class ChatController
 	{
 		display.displayText("Goodbye, " + simpleBot.getUserName() + "It was nice to talk to you!");
 		System.exit(0);
+	}
+	
+	public void handleErrors(String error)
+	{
+		display.displayText(error);
+	}
+	
+	public void sendTweet(String tweet)
+	{
+		myTwitter.sendTweet(tweet);
 	}
 }
