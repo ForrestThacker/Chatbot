@@ -31,7 +31,7 @@ public class CTECTwitter
 {
 	 try
 	{
-		chatbotTwitter.updateStatus("I just tweeted from my Java Chatbot program! #APCRocks @CTECNow thanks @cheerleader & @codyhenrichsen");
+		chatbotTwitter.updateStatus("Forrest Thacker I just tweeted from my Java Chatbot program! #APCRocks @CTECNow thanks @cheerleader & @codyhenrichsen");
 		//if boolean method set variable to true here
 	}
 	catch(TwitterException error)

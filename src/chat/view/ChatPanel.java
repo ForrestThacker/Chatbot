@@ -10,28 +10,24 @@ public class ChatPanel extends JPanel
 	private ChatController baseController;
 	private SpringLayout baseLayout;
 	private JButton chatButton;
+	private JButton chatButton_1;
 	private JTextArea chatArea;
 	private JTextField chatTextField;
 	private JLabel promptLabel;
+	private JButton tweetButton;
 	
 	public ChatPanel(ChatController baseController)
 	{
 		setBackground(new Color(51, 204, 204));
 		this.baseController = baseController;
 		chatArea = new JTextArea (10,30);
-		chatButton = new JButton("Submit your message to the chatbot!");
-		chatButton.setBackground(SystemColor.scrollbar);
+		tweetButton = new JButton("Sned a tweet!");
+		chatButton = new JButton("Send tweet!");
+		chatButton_1 = new JButton("Submit your message to the chatbot!");
+		chatButton_1.setBackground(SystemColor.scrollbar);
 		chatTextField = new JTextField(30);
 		baseLayout = new SpringLayout();
-		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -6, SpringLayout.NORTH, chatTextField);
-		baseLayout.putConstraint(SpringLayout.EAST, chatArea, 0, SpringLayout.EAST, chatTextField);
-		baseLayout.putConstraint(SpringLayout.WEST, chatTextField, 40, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.EAST, chatButton, -19, SpringLayout.EAST, this);
 		promptLabel = new JLabel("Type to the chatbot of doom!");
-		baseLayout.putConstraint(SpringLayout.SOUTH, chatTextField, -6, SpringLayout.NORTH, promptLabel);
-		baseLayout.putConstraint(SpringLayout.NORTH, promptLabel, 209, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, chatButton, 14, SpringLayout.SOUTH, promptLabel);
-		baseLayout.putConstraint(SpringLayout.WEST, promptLabel, 120, SpringLayout.WEST, this);
 		promptLabel.setBackground(Color.BLACK);
 		
 		
@@ -42,14 +38,24 @@ public class ChatPanel extends JPanel
 	
 	private void setupLayout()
 	{
-		
+		baseLayout.putConstraint(SpringLayout.NORTH, tweetButton, 0, SpringLayout.NORTH, chatButton_1);
+		baseLayout.putConstraint(SpringLayout.WEST, tweetButton, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatTextField, -6, SpringLayout.NORTH, promptLabel);
+		baseLayout.putConstraint(SpringLayout.NORTH, promptLabel, 209, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatButton_1, 14, SpringLayout.SOUTH, promptLabel);
+		baseLayout.putConstraint(SpringLayout.WEST, promptLabel, 120, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -6, SpringLayout.NORTH, chatTextField);
+		baseLayout.putConstraint(SpringLayout.EAST, chatArea, 0, SpringLayout.EAST, chatTextField);
+		baseLayout.putConstraint(SpringLayout.WEST, chatTextField, 40, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, chatButton_1, -19, SpringLayout.EAST, this);
 	}
 
 	
 	private void setupPanel()
 	{
+		this.add(tweetButton);
 		this.setLayout(baseLayout);
-		this.add(chatButton);
+		this.add(chatButton_1);
 		this.add(chatTextField);
 		this.add(chatArea);
 		this.add(promptLabel);
@@ -59,7 +65,7 @@ public class ChatPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		chatButton.addActionListener(new ActionListener()
+		chatButton_1.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
@@ -77,11 +83,19 @@ public class ChatPanel extends JPanel
 				chatTextField.setText("");
 			}
 		});
-	}
+		
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+				{
+					baseController.sendTweet("");
+				}
+	});
+}
 	
 	public JButton getButton()
 	{
-		return chatButton;
+		return chatButton_1;
 	}
 	
 	public JTextField getTextField()
