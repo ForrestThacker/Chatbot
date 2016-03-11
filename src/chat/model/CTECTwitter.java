@@ -40,3 +40,27 @@ public class CTECTwitter
 	}	 
 	}
 }
+
+public String topResults(List<String>) wordList)
+
+public void loadTweets(String twitterhandle) throws TwitterException
+{
+	paging statusPage = Paging(1, 200);
+	int page = 1;
+	while (page <= 10)
+	{
+		statusPage.setPage(page);
+		statuses.addAll(chatbotTwitter.getUserTimeline(twitterHandle, statusPage));
+		page++;
+	}
+	for (Status currentStatus : statuses)
+	{
+		String[] tweetText = currentStatus.getText().split("");
+		for (String word : tweetText)
+		{
+			tweetTexts.add(removePuncuaton(word).toLowerCase());
+		}
+	}
+	removeCommonEnglishWords(tweetTexts);
+	removeEmptyText();
+}

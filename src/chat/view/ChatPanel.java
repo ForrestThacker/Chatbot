@@ -103,3 +103,29 @@ public class ChatPanel extends JPanel
 		return chatTextField;
 	}
 }
+
+	tweetButton.addActionListener(new ActionListener()
+	{
+		public void actionPerformed(ActionEvent click)
+		{
+			baseController.sendTweet("No text to send");
+		}
+	});
+	
+	analyzeTwitterButton.addActionListener(new ActionListener()
+	{
+		public void actionPerformed(ActionEvent click)
+		{
+			String user = typingField.getText();
+			String results = baseController.analyze(user);
+			chatArea.setText(results);
+		}
+		
+	});
+}
+
+public JButton getButton()
+{
+	return testButton;
+}
+}
