@@ -39,13 +39,13 @@ public class CTECTwitter
 		baseController.handleErrors(error.getErrorMessage());
 	}	 
 	}
-}
 
-public String topResults(List<String>) wordList)
+
+public String topResults(List<String> wordList)
 
 public void loadTweets(String twitterhandle) throws TwitterException
 {
-	paging statusPage = Paging(1, 200);
+	Paging statusPage = Paging(1, 200);
 	int page = 1;
 	while (page <= 10)
 	{
@@ -58,9 +58,9 @@ public void loadTweets(String twitterhandle) throws TwitterException
 		String[] tweetText = currentStatus.getText().split("");
 		for (String word : tweetText)
 		{
-			tweetTexts.add(removePuncuaton(word).toLowerCase());
+			wordsList.add(removePuncuaton(word).toLowerCase());
 		}
 	}
-	removeCommonEnglishWords(tweetTexts);
+	removeCommonEnglishWords(wordLists);
 	removeEmptyText();
 }

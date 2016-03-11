@@ -101,8 +101,6 @@ public class ChatPanel extends JPanel
 	public JTextField getTextField()
 	{
 		return chatTextField;
-	}
-}
 
 	tweetButton.addActionListener(new ActionListener()
 	{
