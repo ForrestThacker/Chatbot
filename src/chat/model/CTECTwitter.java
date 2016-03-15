@@ -63,7 +63,17 @@ public void loadTweets(String twitterhandle) throws TwitterException
 	}
 	removeCommonEnglishWords(wordLists);
 	
-	private void removeEmptyText();
+	private void removeEmptyText()
+	{
+		for(int spot = 0; spot < wordsList.size(); spot++)
+		{
+			if (wordsList.get(spot).quals(""))
+			{
+				wordsList.remove(spot);
+				spot--;
+			}
+		}
+	}
 
 	private List removeCommonEglishWords(List<String> wordList)
 	
