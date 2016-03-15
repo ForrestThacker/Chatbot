@@ -1,6 +1,7 @@
 package chat.model;
 
 
+import java.awt.List;
 import java.util.ArrayList;
 
 import chat.controller.ChatController;
@@ -41,7 +42,7 @@ public class CTECTwitter
 	}
 
 
-public String topResults(List<String> wordList)
+public String topResults(List wordList)
 
 public void loadTweets(String twitterhandle) throws TwitterException
 {
