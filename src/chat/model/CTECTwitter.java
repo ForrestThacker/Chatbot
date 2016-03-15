@@ -2,7 +2,9 @@ package chat.model;
 
 
 import java.awt.List;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import chat.controller.ChatController;
 import twitter4j.*;
@@ -77,7 +79,7 @@ public void loadTweets(String twitterhandle) throws TwitterException
 	}
 
 	private List removeCommonEglishWords(List<String> wordList)
-	@suppressWarning("unchecked")
+	@SuppressWarnings("unchecked")
 	private List removeCommonEnglishWords(List<String> wordList)
 	{
 		String[] boringWords = importWordsToArray();
@@ -94,8 +96,47 @@ public void loadTweets(String twitterhandle) throws TwitterException
 	}
 	//comment this if you want to keep Twitter usernames in your word list.
 	private String [] importWordsToArray()
+	{
+		String[] boringWords;
+		int wordCount = 0;
+		try
+		{
+			Scanner wordFile = new Scanner(new File("commonWords.txt"));
+			while (wordFile.hasNext())
+			{
+				wordCount++;
+				wordFile.next();
+			}
+			wordFile.reset();
+			boringWords = new String[wordCount];
+			int boringWordCount =0;
+			while (wordFile.hasNext())
+			{
+				boringWords[boringWordCount] = wordFile.next();
+				boringWordCount++;
+			}
+			wordFile.close();
+		}
+		catch (FileNotFoundException e)
+		{
+			baseController.handleErrors(e.getMessage());
+			return new String[0];
+		}
+		return boringWords;
+	}
 	
 	private void removeTwitterUsernamesFromList(List<String>wordList)
+	{
+		for (int wordCount = 0; wordCount < wordList.size(); wordCount++)
+		{
+			if(wordList.get(wordCount).length() >= 1 && wordList.get(wordCount).charAt(0) == '@')
+			{
+				wordList.remove(wordCount);
+				wordCount--;
+			}
+		}
+			
+	}
 	
 	private String RemovePuncuation(String currentString)
 	{
