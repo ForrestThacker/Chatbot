@@ -87,4 +87,19 @@ public class ChatController
 	{
 		myTwitter.sendTweet(tweet);
 	}
+	public String analyze(String userName)
+	{
+		String userAnalysis = "The Twitter user " + userName + " has many tweets.";
+		try
+		{
+			chatTwitter.loadTweets(userName);
+		}
+		catch (TwitterException error)
+		{
+			handleErrors(error.getErrorMessage());
+		}
+		userAnalysis += chatTwitter.topResults();
+		
+		return userAnalysis;
+	}
 }
