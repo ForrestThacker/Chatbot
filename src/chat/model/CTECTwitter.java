@@ -77,7 +77,22 @@ public void loadTweets(String twitterhandle) throws TwitterException
 	}
 
 	private List removeCommonEglishWords(List<String> wordList)
-	
+	@suppressWarning("unchecked")
+	private List removeCommonEnglishWords(List<String> wordList)
+	{
+		String[] boringWords = importWordsToArray();
+		
+		for (int cout = 0; count < wordList.size(); count++)
+		{
+			for (int removeSpot = 0; removeSpot < boringWords.length; removepot++)
+			{
+				wordList.remove(count);
+				count--;
+				removeSpot = boringWords.length; //Exit the inner loop. 
+			}
+		}
+	}
+	//comment this if you want to keep Twitter usernames in your word list.
 	private String [] importWordsToArray()
 	
 	private void removeTwitterUsernamesFromList(List<String>wordList)
