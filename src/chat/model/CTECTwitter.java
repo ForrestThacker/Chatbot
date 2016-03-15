@@ -2,6 +2,7 @@ package chat.model;
 
 
 import java.awt.List;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -45,6 +46,36 @@ public class CTECTwitter
 
 
 public String topResults(List wordList)
+{
+	String tweetResults = "";
+	
+	int topWordLocation = 0;
+	int topCount = 0;
+	
+	for (int index = 0; index < wordsList.size(); index++)
+	{
+		int wordUseCount = 1;
+		
+		for(int spot = index + 1; spot < wordsList.size(); spot++)
+		{
+			int wordUseCount = 1;
+			
+			for(int spot = index + 1; spot < wordsList.size(); spot++)
+			{
+				if(wordsList.get(index).equals(wordsList.get(spot)))
+				{
+					wordUseCount++;
+				}
+				if(wordUseCount > topCount)
+				{
+					topCount= wordUseCount;
+					topWordLocation = index;
+					
+				}
+			}
+		}
+	}
+}
 
 public void loadTweets(String twitterhandle) throws TwitterException
 {
@@ -64,7 +95,7 @@ public void loadTweets(String twitterhandle) throws TwitterException
 			wordsList.add(removePuncuaton(word).toLowerCase());
 		}
 	}
-	removeCommonEnglishWords(wordLists);
+	removeCommonEnglishWords(wordLists)
 	
 	private void removeEmptyText()
 	{
@@ -84,9 +115,10 @@ public void loadTweets(String twitterhandle) throws TwitterException
 	{
 		String[] boringWords = importWordsToArray();
 		
+		Object count;
 		for (int cout = 0; count < wordList.size(); count++)
 		{
-			for (int removeSpot = 0; removeSpot < boringWords.length; removepot++)
+			for (int removeSpot = 0; removeSpot < boringWords.length; removeSpot++)
 			{
 				wordList.remove(count);
 				count--;
