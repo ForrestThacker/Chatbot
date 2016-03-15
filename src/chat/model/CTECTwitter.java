@@ -62,5 +62,31 @@ public void loadTweets(String twitterhandle) throws TwitterException
 		}
 	}
 	removeCommonEnglishWords(wordLists);
-	removeEmptyText();
+	
+	private void removeEmptyText();
+
+	private List removeCommonEglishWords(List<String> wordList)
+	
+	private String [] importWordsToArray()
+	
+	private void removeTwitterUsernamesFromList(List<String>wordList)
+	
+	private String RemovePuncuation(String currentString)
+	{
+		String punctuation = ".,'?!\(){}^<>-"; //think about adding
+												// hashtag and @
+		String scrubbedString = "";
+		for(int i = 0; i < currentString.length(); i++)
+		{
+			if(punctuation.indexOf(currentString.charAt(i)) == -1)
+			{
+				scrubbedString.+=(currentString.charAt(i);
+			}
+		}
+		return scrubbedString;
+		
+	}
+	
+	
+	
 }
